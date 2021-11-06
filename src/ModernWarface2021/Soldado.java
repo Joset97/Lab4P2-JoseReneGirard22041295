@@ -11,13 +11,13 @@ import java.util.Date;
  *
  * @author jrgir
  */
-public class Soldado {
+public abstract class Soldado {
 
     protected String nombre, rango;
     protected int edad, Hitpoints;
-    protected Date tiempoEnElEjercito;
+    protected int tiempoEnElEjercito;
 
-    public Soldado(String nombre, String rango, int edad, int Hitpoints, Date tiempoEnElEjercito) {
+    public Soldado(String nombre, String rango, int edad, int Hitpoints, int tiempoEnElEjercito) {
         this.nombre = nombre;
         this.rango = rango;
         this.edad = edad;
@@ -61,20 +61,20 @@ public class Soldado {
     }else{throw new MiExepcion("Su vida no es ta en los limites establecidos(100-400)");}
     }
     
-    public Date getTiempoEnElEjercito() {
+    public int getTiempoEnElEjercito() {
         return tiempoEnElEjercito;
     }
 
-    public void setTiempoEnElEjercito(Date tiempoEnElEjercito) {
+    public void setTiempoEnElEjercito(int tiempoEnElEjercito) {
         this.tiempoEnElEjercito = tiempoEnElEjercito;
     }
 
-    public void Bonus(){}
+    public abstract int Damage(Soldado sol)throws MiExepcion;
     
     
     @Override
     public String toString() {
-        return "Soldado{" + "nombre=" + nombre + ", rango=" + rango + ", edad=" + edad + ", Hitpoints=" + Hitpoints + ", tiempoEnElEjercito=" + tiempoEnElEjercito + '}';
+        return "Soldado{" + "\nnombre=" + nombre + ",\n rango=" + rango + ", \nedad=" + edad + ", \nHitpoints=" + Hitpoints + ", \ntiempoEnElEjercito=" + tiempoEnElEjercito + '}';
     }
 
     

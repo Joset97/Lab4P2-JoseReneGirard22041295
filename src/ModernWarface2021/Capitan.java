@@ -13,19 +13,36 @@ import java.util.Date;
  */
 public class Capitan extends Soldado {
 
-    private int DamageLlamas;
-     private String nombreArma;
+    private Lanzallamas Flame;
 
-    public Capitan(String nombre, String rango, int edad, int Hitpoints, Date tiempoEnElEjercito, String NombreArma) {
+    public Capitan(Lanzallamas Flame, String nombre, String rango, int edad, int Hitpoints, int tiempoEnElEjercito) {
         super(nombre, rango, edad, Hitpoints, tiempoEnElEjercito);
-        this.DamageLlamas = 110;
-          nombreArma = NombreArma;
+        this.Flame = Flame;
+    }
+
+    @Override
+    public int Damage(Soldado sol) {
         
+        if (sol instanceof InfanteriaLigera) {
+
+            return ((int) (Flame.getDamage() * 0.25));
+
+        }
+        if (sol instanceof InfanteriaPesada) {
+
+            return ((int) (Flame.getDamage() * 0.20));
+        }
+        if (sol instanceof Sargento) {
+
+            return ((int) (Flame.getDamage() * 0.15));
+        } else {
+            return Flame.getDamage();
+        }
     }
 
-    public int getDamageLlamas() {
-        return DamageLlamas;
+    @Override
+    public String toString() {
+        return "Capitan{" + "Flame=" + Flame + '}';
     }
 
-    
 }

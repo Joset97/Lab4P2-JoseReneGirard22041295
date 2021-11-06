@@ -11,24 +11,34 @@ import java.util.Date;
  *
  * @author jrgir
  */
-public class Sargento extends Soldado{
-    
-    private int DamageEscopeta;
-     private String nombreArma;
+public class Sargento extends Soldado {
 
-    public Sargento(String nombre, String rango, int edad, int Hitpoints, Date tiempoEnElEjercito, String NombreArma) {
+    private Escopeta Shotg;
+
+    public Sargento(Escopeta Shotg, String nombre, String rango, int edad, int Hitpoints, int tiempoEnElEjercito) {
         super(nombre, rango, edad, Hitpoints, tiempoEnElEjercito);
-        this.DamageEscopeta = 150;
-          nombreArma = NombreArma;
+        this.Shotg = Shotg;
     }
 
-    public int getDamageEscopeta() {
-        return DamageEscopeta;
+    @Override
+    public int Damage(Soldado sol) {
+
+        if (sol instanceof InfanteriaLigera) {
+
+            return ((int) (Shotg.getDamage() * 0.15));
+
+        }
+        if (sol instanceof InfanteriaPesada) {
+
+            return ((int) (Shotg.getDamage() * 0.10));
+        } else {
+            return Shotg.getDamage();
+        }
     }
 
-    public void setDamageEscopeta(int DamageEscopeta) {
-        this.DamageEscopeta = DamageEscopeta;
+    @Override
+    public String toString() {
+        return "Sargento{" + "Shotg=" + Shotg + '}';
     }
-    
-    
+
 }

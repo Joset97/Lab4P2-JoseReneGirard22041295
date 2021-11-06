@@ -24,4 +24,20 @@ public class Weapons {
         return "Weapons{" + "\nnombre=" + nombre + ", \nDamage=" + Damage + '}';
     }
 
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public int getDamage() {
+        return Damage;
+    }
+
+    public void setDamage(int Damage) {
+        this.Damage = Damage;
+    }
+
 }

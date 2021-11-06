@@ -13,26 +13,33 @@ import java.util.Date;
  */
 public class InfanteriaPesada  extends Soldado{
     
-    private int DamageBomba;
- private String nombreArma;
-    
-    
-    public InfanteriaPesada(String nombre, String rango, int edad, int Hitpoints, Date tiempoEnElEjercito, String NombreArma) {
+
+    private Bombas Bomb;
+
+    public InfanteriaPesada(Bombas Bomb, String nombre, String rango, int edad, int Hitpoints, int tiempoEnElEjercito) {
         super(nombre, rango, edad, Hitpoints, tiempoEnElEjercito);
-        this.DamageBomba = 50;
-          nombreArma = NombreArma;
+        this.Bomb = Bomb;
     }
 
-    public int getDamageBomba() {
-        return DamageBomba;
-    }
-    
     @Override
-    public void Bonus(){
+    public int Damage(Soldado sol){
+        
+    if(sol instanceof InfanteriaLigera ){
     
-   
+    return  ((int) (Bomb.getDamage()*0.05));
     
+    }else{return Bomb.getDamage();}
+    
+  
     }
+
+    @Override
+    public String toString() {
+        return "InfanteriaPesada{" + "Bomb=" + Bomb + '}';
+    }
+
+   
             
     
 }
+ // throw new MiExepcion("Algo salio mal");

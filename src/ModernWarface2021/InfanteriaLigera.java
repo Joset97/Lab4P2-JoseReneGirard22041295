@@ -13,30 +13,24 @@ import java.util.Date;
  */
 public class InfanteriaLigera extends Soldado {
 
-    private int DamageArmaBlanca;
-    private String nombreArma;
+    private ArmaBlanca Ab;
 
-    public InfanteriaLigera(String nombre, String rango, int edad, int Hitpoints, Date tiempoEnElEjercito, String NombreArma) {
+    public InfanteriaLigera(ArmaBlanca Ab, String nombre, String rango, int edad, int Hitpoints, int tiempoEnElEjercito) {
         super(nombre, rango, edad, Hitpoints, tiempoEnElEjercito);
-
-        nombreArma = NombreArma;
-        DamageArmaBlanca = 50;
-
+        this.Ab = Ab;
     }
 
-    public int getDamageArmaBlanca() {
-        return DamageArmaBlanca;
+    @Override
+    public int Damage(Soldado sol) {
+        
+        return Ab.getDamage();
+        
     }
 
-
-    public String getNombreArma() {
-        return nombreArma;
+    @Override
+    public String toString() {
+        return "InfanteriaLigera{" + "Ab=" + Ab + '}';
     }
 
-    public void setNombreArma(String nombreArma) {
-        this.nombreArma = nombreArma;
-    }
-
-  
 
 }
